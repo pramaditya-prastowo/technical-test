@@ -1,0 +1,41 @@
+<div class="card-container card">
+  <div class="card-header">Login</div>
+  <div class="card-body" [formGroup]="formGroup">
+    <div class="mb-3">
+      <label class="form-label">Email address</label>
+      <input
+        type="string"
+        class="form-control"
+        placeholder="name@example.com"
+        formControlName="username"
+        [class.is-invalid]="isControlInvalid('username')"
+      />
+      <div class="invalid-feedback" *ngIf="isControlInvalid('username')">
+        Username Tidak Boleh Kosong
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        placeholder="***********"
+        formControlName="password"
+        [class.is-invalid]="isControlInvalid('username')"
+      />
+
+      <div class="invalid-feedback" *ngIf="isControlInvalid('password')">
+        Password Tidak Boleh Kosong
+      </div>
+    </div>
+
+    <div class="alert alert-danger" role="alert" *ngIf="match === false">
+      username atau password salah
+    </div>
+
+    <div class="btn-wrapper">
+      <button class="btn btn-primary" (click)="signIn()">Login</button>
+    </div>
+  </div>
+</div>

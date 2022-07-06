@@ -1,0 +1,76 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Detail Employee</h5>
+  </div>
+  <ng-container *ngIf="!isLoading; else loading">
+    <div class="modal-body">
+      <div class="col-lg-12">
+        <label class="form-label">Firstname</label>
+        <input [value]="employee.firstName" class="form-control" disabled />
+      </div>
+      <div class="col-lg-12">
+        <label class="form-label">Lastname</label>
+        <input [value]="employee.lastName" class="form-control" disabled />
+      </div>
+      <div class="col-lg-12">
+        <label class="form-label">Email</label>
+        <input [value]="employee.email" class="form-control" disabled />
+      </div>
+      <div class="col-lg-12">
+        <label class="form-label">Birthdate</label>
+        <input
+          [value]="employee.birthDate | date: 'dd/MM/YYYY'"
+          type="text"
+          class="form-control"
+          disabled
+        />
+      </div>
+      <div class="col-lg-12">
+        <label class="form-label">Basic Salary</label>
+        <input
+          [value]="employee.basicSalary | currency: 'Rp. ':'symbol':'1.0'"
+          class="form-control"
+          disabled
+        />
+      </div>
+      <div class="col-lg-12">
+        <label class="form-label">Username</label>
+        <input [value]="employee.userName" class="form-control" disabled />
+      </div>
+      <div class="col-lg-12">
+        <label class="form-label">Status</label>
+        <input [value]="employee.status" class="form-control" disabled />
+      </div>
+      <div class="col-lg-12">
+        <label class="form-label">Group</label>
+        <input [value]="employee.group" class="form-control" disabled />
+      </div>
+      <div class="col-lg-12">
+        <label class="form-label">Description</label>
+        <input
+          [value]="employee.description | date: 'dd/MM/YYYY'"
+          type="text"
+          class="form-control"
+          disabled
+        />
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <div class="modal-body modal-container">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-template>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-bs-dismiss="modal"
+      (click)="modal.dismiss()"
+    >
+      Close
+    </button>
+  </div>
+</div>

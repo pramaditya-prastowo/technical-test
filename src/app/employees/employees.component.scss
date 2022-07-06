@@ -1,0 +1,35 @@
+.card-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+}
+
+.table-header {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.aksi-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50%;
+  margin: auto;
+}

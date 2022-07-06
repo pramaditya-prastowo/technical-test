@@ -1,0 +1,66 @@
+<div class="card container-xl">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">List Employees</h3>
+    </div>
+    <div class="card-title">
+      <button class="btn btn-primary" (click)="logOut()">Log Out</button>
+    </div>
+  </div>
+
+  <div class="table-header">
+    <div>
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput placeholder="Search" (keyup)="searchKey($event)" />
+      </mat-form-field>
+    </div>
+    <div>
+      <button class="btn btn-primary" (click)="add()">Add Employees</button>
+    </div>
+  </div>
+
+  <div class="angular-bootstrap-table">
+    <table class="table" mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="aksi">
+        <th mat-header-cell *matHeaderCellDef class="text-center">Aksi</th>
+        <td mat-cell *matCellDef="let element" class="aksi-container">
+          <button type="button" class="btn btn-primary" (click)="detail(element.id)">Detail</button>
+          <button type="button" class="btn btn-warning">Edit</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Firstname.</th>
+        <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Lastname</th>
+        <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20, 50, 100]"
+      [length]="employees.length"
+      [pageSize]="10"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+</div>

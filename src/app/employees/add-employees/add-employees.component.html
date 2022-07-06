@@ -1,0 +1,145 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Add Employee</h5>
+  </div>
+
+  <div class="modal-body" [formGroup]="formGroup">
+    <div class="col-lg-12">
+      <label class="form-label">Firstname</label>
+      <input
+        type="text"
+        placeholder="Firstname"
+        class="form-control"
+        formControlName="firstName"
+        [class.is-invalid]="isControlInvalid('firstName')"
+      />
+      <div class="invalid-feedback" *ngIf="isControlInvalid('firstName')">
+        Firstname invalid
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <label class="form-label">Lastname</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Lastname"
+        formControlName="lastName"
+        [class.is-invalid]="isControlInvalid('lastName')"
+      />
+      <div class="invalid-feedback" *ngIf="isControlInvalid('lastName')">
+        Firstname invalid
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <label class="form-label">Email</label>
+      <input
+        class="form-control"
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+        [class.is-invalid]="isControlInvalid('email')"
+      />
+      <div class="invalid-feedback" *ngIf="isControlInvalid('email')">
+        Email invalid
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <label class="form-label">Birthdate</label>
+      <input
+        class="form-control"
+        type="date"
+        max="{{ today }}"
+        formControlName="birthDate"
+        [class.is-invalid]="isControlInvalid('birthDate')"
+      />
+      <div class="invalid-feedback" *ngIf="isControlInvalid('birthDate')">
+        Birthdate invalid
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <label class="form-label">Basic Salary</label>
+      <input
+        class="form-control"
+        placeholder="Basic Salary"
+        type="number"
+        formControlName="basicSalary"
+        [class.is-invalid]="isControlInvalid('basicSalary')"
+      />
+      <div class="invalid-feedback" *ngIf="isControlInvalid('basicSalary')">
+        Basic salary invalid
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <label class="form-label">Username</label>
+      <input
+        class="form-control"
+        placeholder="Basic Salary"
+        type="text"
+        formControlName="userName"
+        [class.is-invalid]="isControlInvalid('userName')"
+      />
+      <div class="invalid-feedback" *ngIf="isControlInvalid('userName')">
+        Username invalid
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <label class="form-label">Status</label>
+      <input
+        class="form-control"
+        placeholder="Status"
+        type="text"
+        formControlName="status"
+        [class.is-invalid]="isControlInvalid('status')"
+      />
+      <div class="invalid-feedback" *ngIf="isControlInvalid('status')">
+        Status invalid
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <label class="form-label">Group</label>
+      <ng-select
+        [items]="group"
+        
+        [clearable]="true"
+        bindLabel="text"
+        bindValue="id"
+        [searchable]="true"
+        formControlName="group"
+      ></ng-select>
+
+      <div class="invalid-feedback" *ngIf="isControlInvalid('group')">
+        Group invalid
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <label class="form-label">Description</label>
+      <input
+        class="form-control"
+        type="date"
+        formControlName="description"
+        [class.is-invalid]="isControlInvalid('description')"
+      />
+      <div class="invalid-feedback" *ngIf="isControlInvalid('description')">
+        Description invalid
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-bs-dismiss="modal"
+      (click)="modal.dismiss()"
+    >
+      Close
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="save()"
+      [disabled]="formGroup.invalid"
+    >
+      Save
+    </button>
+  </div>
+</div>
